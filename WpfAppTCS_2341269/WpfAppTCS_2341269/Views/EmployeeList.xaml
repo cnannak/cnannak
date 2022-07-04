@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="WpfAppTCS_2341269.Views.EmployeeList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfAppTCS_2341269.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="40,5,40,5" Name="btnAdd" Content="Add" FontSize="16" FontWeight="Bold" Click="btnAdd_Click" FontFamily="Arial Black" />
+            <Button Margin="40,5,40,5" Name="btnUpdate" Content="Update" Grid.Column="1" FontSize="16" FontWeight="Bold" Click="btnUpdate_Click" FontFamily="Arial Black" />
+            <Button Margin="40,5,40,5" Name="btnDelete" Content="Delete" Grid.Column="2" FontSize="16" FontWeight="Bold" Click="btnDelete_Click" FontFamily="Arial Black" />
+        </Grid>
+        <DataGrid x:Name="gridEmployee" IsReadOnly="True" AutoGenerateColumns="False" SelectionUnit="FullRow" SelectionChanged="gridEmployee_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Width="*" Binding="{Binding id}" Visibility="Hidden" />
+                <DataGridTextColumn Header="Employee Name" Width="30*" Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Email" Width="40*" Binding="{Binding email}"/>
+                <DataGridTextColumn Header="Gender" Width="20*" Binding="{Binding gender}"/>
+                <DataGridTextColumn Header="Status" Width="10*" Binding="{Binding status}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</UserControl>

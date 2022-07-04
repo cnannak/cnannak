@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfAppTCS_2341269.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppTCS_2341269"
+        xmlns:views="clr-namespace:WpfAppTCS_2341269.Views"
+        xmlns:viewmodels="clr-namespace:WpfAppTCS_2341269.ViewModels"
+        mc:Ignorable="d"
+        Title="WPF Personal Tracking" Name="EmployeeMainWindow" Height="540" Width="1200" WindowStartupLocation="CenterScreen" FontSize="24" FontWeight="Bold" Background="#FF8EAFF7" ResizeMode="NoResize">
+    <Grid Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <ContentControl Content="{Binding}" Grid.Column="1"  Grid.Row="1" Grid.RowSpan="8" Height="Auto" FontWeight="Normal" Width="Auto" FontSize="14" FontFamily="Calibri Light"/>
+        <Label x:Name="lblWindowName" Content="Employee Management" Grid.Column="1" HorizontalAlignment="Center" Margin="212,10,0,0" VerticalAlignment="Top" FontSize="21"/>
+    </Grid>
+    <Window.Resources>
+        <DataTemplate x:Name="EmployeeTemplate" DataType="{x:Type viewmodels:EmployeeViewModel}">
+            <views:EmployeeList>
+            </views:EmployeeList>
+        </DataTemplate>
+    </Window.Resources>
+</Window>
